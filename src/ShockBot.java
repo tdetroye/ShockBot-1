@@ -7,10 +7,13 @@ import java.lang.*;
  */
 public class ShockBot extends PircBot
 {
-    public ShockBot()
+	public String join;
+	
+    public ShockBot(String channel)
     {
-        this.setName("ShockBot_");
-        this.setLogin("ShockBot_");
+        this.setName("botmyrlinn");
+        this.setLogin("fantasy101");
+		join = channel;
     }
 
     public void onMessage(String channel, String sender, String login, String hostname, String message)
@@ -22,7 +25,7 @@ public class ShockBot extends PircBot
                 break;
 
             case "!ban":
-                if (sender.equalsIgnoreCase("shockwve")) {
+                if (sender.equalsIgnoreCase("shockwve") || sender.equalsIgnoreCase("amyrlinn")) {
                     String[] splitmsg = message.split("+ ");
                     if (splitmsg.length > 2)
                         System.out.println("Incorrect Usage of Command. Usage: !ban <user>");
@@ -36,10 +39,10 @@ public class ShockBot extends PircBot
 
             default:
                 CharSequence rheyix = "rheyix";
-                if (message.contains(rheyix) && sender.equalsIgnoreCase("shockwve"))
+                if (message.contains(rheyix) && (sender.equalsIgnoreCase("shockwve") || (sender.equalsIgnoreCase("amyrlinn"))))
                     this.sendMessage(channel, "Rheyix is literally the worst runner at A Hat in Time Kappa");
                 CharSequence shock = "shockwve";
-                if (message.contains(shock) && sender.equalsIgnoreCase("shockwve"))
+                if (message.contains(shock) && (sender.equalsIgnoreCase("shockwve") || (sender.equalsIgnoreCase("amyrlinn"))))
                     this.sendMessage(channel, "white graps LMAO");
         }
     }
@@ -48,4 +51,9 @@ public class ShockBot extends PircBot
     {
         return "";
     }
+	
+	public String getChannel()
+	{
+		return join;
+	}
 }
