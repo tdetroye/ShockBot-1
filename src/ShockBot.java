@@ -5,15 +5,15 @@ import java.lang.*;
 /**
  * Created by Patrick on 3/27/2016.
  */
-public class ShockAmyBot extends PircBot
+public class ShockBot extends PircBot
 {
-	public channel;
+	public String join;
 	
-    public ShockAmyBot(String channel)
+    public ShockBot(String channel)
     {
         this.setName("botmyrlinn");
-        this.setLogin([YOUR PASSWORD]);
-		this.channel = channel;
+        this.setLogin("fantasy101");
+		join = channel;
     }
 
     public void onMessage(String channel, String sender, String login, String hostname, String message)
@@ -25,7 +25,7 @@ public class ShockAmyBot extends PircBot
                 break;
 
             case "!ban":
-                if (sender.equalsIgnoreCase("shockwve") || sender.equalsIgnoreCase("amyrlinn") {
+                if (sender.equalsIgnoreCase("shockwve") || sender.equalsIgnoreCase("amyrlinn")) {
                     String[] splitmsg = message.split("+ ");
                     if (splitmsg.length > 2)
                         System.out.println("Incorrect Usage of Command. Usage: !ban <user>");
@@ -39,10 +39,10 @@ public class ShockAmyBot extends PircBot
 
             default:
                 CharSequence rheyix = "rheyix";
-                if (message.contains(rheyix) && (sender.equalsIgnoreCase("shockwve") || (sender.equalsIgnoreCase("amyrlinn"))
+                if (message.contains(rheyix) && (sender.equalsIgnoreCase("shockwve") || (sender.equalsIgnoreCase("amyrlinn"))))
                     this.sendMessage(channel, "Rheyix is literally the worst runner at A Hat in Time Kappa");
                 CharSequence shock = "shockwve";
-                if (message.contains(shock) && (sender.equalsIgnoreCase("shockwve") || (sender.equalsIgnoreCase("amyrlinn"))
+                if (message.contains(shock) && (sender.equalsIgnoreCase("shockwve") || (sender.equalsIgnoreCase("amyrlinn"))))
                     this.sendMessage(channel, "white graps LMAO");
         }
     }
@@ -54,6 +54,6 @@ public class ShockAmyBot extends PircBot
 	
 	public String getChannel()
 	{
-		return channel;
+		return join;
 	}
 }
